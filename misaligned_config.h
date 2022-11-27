@@ -3,8 +3,8 @@
 typedef struct
 {
     int pairNum;
-    const char* majorColor;
-    const char* minorColor;
+    char* majorColor;
+    char* minorColor;
 }colorPairInfo;
 
 #define MAX_COLOR_PAIR_POSSIBLE 25
