@@ -3,7 +3,9 @@
 #include <string.h>
 #include "misaligned_test.h"
 
+#ifdef UNIT_TEST
 colorPairInfo testColorPair[MAX_COLOR_PAIR_POSSIBLE];
+#endif
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -12,9 +14,11 @@ int printColorMap() {
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
             printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+#ifdef UNIT_TEST
             testColorPair[testIdx].pairNum = i * 5 + j;
             testColorPair[testIdx].majorColor = majorColor[i];
             testColorPair[testIdx].minorColor = minorColor[i];
+#endif
         }
     }
     return i * j;
@@ -23,7 +27,7 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
-    
+    // Similary all pairs shall be evaluated using the testColorPair variable
     assert(testColorPair[0].pairNum == 1);
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
     assert(strcmp(testColorPair[0].majorColor, "Blue") == 0);
