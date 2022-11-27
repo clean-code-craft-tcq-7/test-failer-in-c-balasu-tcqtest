@@ -1,3 +1,5 @@
+#define UNIT_TEST   1
+
 typedef struct
 {
     int pairNum;
