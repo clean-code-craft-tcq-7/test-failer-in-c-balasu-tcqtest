@@ -1,19 +1,25 @@
 #include <stdio.h>
 #include <assert.h>
+#include "alerter_config.h"
 
 int alertFailureCount = 0;
+
+#ifdef UNIT_TEST
+#define networkAlert networkAlertStub
+int testNetworkAlertStatus = 0;
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    return 200;
+    return testNetworkAlertStatus;
 }
+#endif
 
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
+    int returnCode = networkAlert(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
@@ -24,8 +30,14 @@ void alertInCelcius(float farenheit) {
 }
 
 int main() {
+    //Test 1: Network alerter gives status 200
+    testNetworkAlertStatus = 200;
     alertInCelcius(400.5);
+    assert(alertFailureCount == 0);
+    //Test 2: Network alerter gives status 500
+    testNetworkAlertStatus = 500;
     alertInCelcius(303.6);
+    assert(alertFailureCount == 1);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
