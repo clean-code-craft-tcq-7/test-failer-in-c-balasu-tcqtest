@@ -31,7 +31,7 @@ int main() {
     int result = printColorMap();
     assert(result == 25);
     // Similary all pairs shall be evaluated using the testColorPair variable
-    //assert(testColorPair[0].pairNum == 1);
+    assert(testColorPair[0].pairNum == 1);
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
     assert(strcmp(testColorPair[0].minorColor, "Blue") == 0);
     
