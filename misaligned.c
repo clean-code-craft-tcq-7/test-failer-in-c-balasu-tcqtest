@@ -35,8 +35,8 @@ int main() {
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
     assert(strcmp(testColorPair[0].minorColor, "Blue") == 0);
     
-    assert(strcmp(testColorPair[0].majorColor, "White") == 0);
-    assert(strcmp(testColorPair[0].minorColor, "Orange") == 0);
+    assert(strcmp(testColorPair[1].majorColor, "White") == 0);
+    assert(strcmp(testColorPair[1].minorColor, "Orange") == 0);
     
     printf("All is well (maybe!)\n");
     return 0;
