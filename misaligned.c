@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-#include "misaligned_test.h"
+#include "misaligned_config.h"
 
 #ifdef UNIT_TEST
 colorPairInfo testColorPair[MAX_COLOR_PAIR_POSSIBLE];
