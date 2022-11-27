@@ -33,10 +33,10 @@ int main() {
     // Similary all pairs shall be evaluated using the testColorPair variable
     //assert(testColorPair[0].pairNum == 1);
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
-    assert(strcmp(testColorPair[0].majorColor, "Blue") == 0);
+    assert(strcmp(testColorPair[0].minorColor, "Blue") == 0);
     
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
-    assert(strcmp(testColorPair[0].majorColor, "Orange") == 0);
+    assert(strcmp(testColorPair[0].minorColor, "Orange") == 0);
     
     printf("All is well (maybe!)\n");
     return 0;
