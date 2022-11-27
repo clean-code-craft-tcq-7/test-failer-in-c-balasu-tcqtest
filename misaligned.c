@@ -20,6 +20,7 @@ int printColorMap() {
             testColorPair[testIdx].pairNum = i * 5 + j;
             testColorPair[testIdx].majorColor = majorColor[i];
             testColorPair[testIdx].minorColor = minorColor[i];
+            testIdx++;
 #endif
         }
     }
