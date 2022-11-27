@@ -12,8 +12,10 @@ colorPairInfo testColorPair[MAX_COLOR_PAIR_POSSIBLE];
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-    int i = 0, j = 0, testIdx = 0;
-    
+    int i = 0, j = 0;
+#ifdef UNIT_TEST
+    int testIdx = 0;
+#endif
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
             printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
@@ -32,10 +34,10 @@ int main() {
     int result = printColorMap();
     assert(result == 25);
     // Similary all pairs shall be evaluated using the testColorPair variable
-    //assert(testColorPair[0].pairNum == 1);
+    assert(testColorPair[0].pairNum == 1);
     assert(strcmp(testColorPair[0].majorColor, "White") == 0);
     assert(strcmp(testColorPair[0].minorColor, "Blue") == 0);
-    
+    assert(testColorPair[1].pairNum == 2);
     assert(strcmp(testColorPair[1].majorColor, "White") == 0);
     assert(strcmp(testColorPair[1].minorColor, "Orange") == 0);
     
