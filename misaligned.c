@@ -21,10 +21,18 @@ void createColorPair(void)
         }
     }
 }
+
+void formatColorPairString(char* colorPairStrBuff, int pairIdx)
+{
+    memset(colorPairStrBuff, 0, 50);
+    sprintf(colorPairStrBuff, "%d | %s | %s",colorPairData[pairIdx].pairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
+}
 void printColorMap() {
     int i = 0;
+    char colorPairStrBuff[50];
     for(i = 0; i < MAX_COLOR_PAIR_POSSIBLE; i++) {
-        printf("%d | %s | %s\n", colorPairData[i].pairNum, colorPairData[i].majorColor, colorPairData[i].minorColor);
+        formatColorPairString(colorPairStrBuff, i);
+        printf("%s\n", colorPairStrBuff);
     }
 }
 
