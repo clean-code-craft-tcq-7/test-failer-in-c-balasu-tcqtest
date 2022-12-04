@@ -28,11 +28,11 @@ void formatColorPairString(char* colorPairStrBuff, int pairIdx)
     char* spaceAftrPairNum;
     if(colorPairData[pairIdx].pairNum < 10)
     {
-        spaceAftrPairNum = "  | ";
+        strcpy(spaceAftrPairNum,"  | ");
     }
     else
     {
-        spaceAftrPairNum = " | ";
+        strcpy(spaceAftrPairNum ," | ");
     }
     sprintf(colorPairStrBuff, "%d%s%s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
