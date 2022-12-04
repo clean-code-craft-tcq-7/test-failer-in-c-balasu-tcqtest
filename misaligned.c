@@ -25,7 +25,7 @@ void createColorPair(void)
 void formatColorPairString(char* colorPairStrBuff, int pairIdx)
 {
     memset(colorPairStrBuff, 0, 50);
-    char* spaceAftrPairNum;
+    char spaceAftrPairNum[5];
     if(colorPairData[pairIdx].pairNum < 10)
     {
         strcpy(spaceAftrPairNum,"  | ");
