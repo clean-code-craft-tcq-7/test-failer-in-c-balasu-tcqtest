@@ -37,7 +37,7 @@ void formatColorPairString(char* colorPairStrBuff, int pairIdx)
         strcpy(spaceAftrPairNum ," | ");
     }
     spaceCnt = myPadwidth - strlen(colorPairData[pairIdx].majorColor);
-    sprintf(colorPairStrBuff, "%d%s%*s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor,spaceCnt, colorPairData[pairIdx].minorColor);
+    sprintf(colorPairStrBuff, "%d%s%*s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,spaceCnt,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
        
 void printColorMap() {
