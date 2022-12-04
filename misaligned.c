@@ -30,8 +30,7 @@ void printColorMap() {
 int main() {
     
     createColorPair();
-    int result = printColorMap();
-    assert(result == 25);
+    printColorMap();
     // Simivlary all pairs shall be evaluated using the testColorPair variable
     assert(colorPairData[0].pairNum == 1);
     assert(strcmp(colorPairData[0].majorColor, "White") == 0);
