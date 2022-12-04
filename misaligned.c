@@ -35,7 +35,7 @@ void formatColorPairString(char* colorPairStrBuff, int pairIdx)
         strcpy(spaceAftrPairNum ," | ");
     }
 
-    sprintf(colorPairStrBuff, "%d%s%-5s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
+    sprintf(colorPairStrBuff, "%d%s%-6s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
        
 void printColorMap() {
