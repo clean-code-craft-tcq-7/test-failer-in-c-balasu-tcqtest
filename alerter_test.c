@@ -1,4 +1,7 @@
 
+#include <stdio.h>
+#include "alerter_test.h"
+
 int testNetworkAlertStatus;
 
 int networkAlertStub(float celcius) {
