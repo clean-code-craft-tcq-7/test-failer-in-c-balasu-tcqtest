@@ -17,6 +17,7 @@ void createColorPair(void)
             colorPairData[dataIdx].pairNum = (i * 5 + j) + 1;
             strcpy(colorPairData[dataIdx].majorColor, majorColor[i]);
             strcpy(colorPairData[dataIdx].minorColor, minorColor[j]);
+            dataIdx++;
         }
     }
 }
