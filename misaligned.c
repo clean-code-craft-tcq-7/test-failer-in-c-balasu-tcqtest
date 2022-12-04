@@ -25,7 +25,16 @@ void createColorPair(void)
 void formatColorPairString(char* colorPairStrBuff, int pairIdx)
 {
     memset(colorPairStrBuff, 0, 50);
-    sprintf(colorPairStrBuff, "%d | %s | %s",colorPairData[pairIdx].pairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
+    char* spaceAftrPairNum;
+    if(colorPairData[pairIdx].pairNum < 10)
+    {
+        spaceAftrPairNum = "  | ";
+    }
+    else
+    {
+        spaceAftrPairNum = " | ";
+    }
+    sprintf(colorPairStrBuff, "%d%s%s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
 void printColorMap() {
     int i = 0;
