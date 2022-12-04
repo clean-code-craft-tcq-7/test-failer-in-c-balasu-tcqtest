@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
-#include "alerter_config.h"
 
 int alertFailureCount = 0;
-
-#ifdef UNIT_TEST
-#define networkAlert networkAlertStub
-int testNetworkAlertStatus = 0;
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
@@ -17,27 +12,39 @@ int networkAlertStub(float celcius) {
 }
 #endif
 
-void alertInCelcius(float farenheit) {
-    float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlert(celcius);
-    if (returnCode != 200) {
-        // non-ok response is not an error! Issues happen in life!
-        // let us keep a count of failures to report
-        // However, this code doesn't count failures!
-        // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;
+void alertInCelcius(float farenheit, int(*networkAlert)(float), float threshold) {
+    float celcius;
+    int returnCode;
+    
+    celcius = (farenheit - 32) * 5 / 9;
+    if(celcius > threshold)
+    {
+        returnCode = networkAlert(celcius);
+        if (returnCode != 200) {
+            alertFailureCount += 1;
+        }
     }
 }
 
 int main() {
-    //Test 1: Network alerter gives status 200
+    
+    //Test 1: Threshold is 150 degreeC, input is 250F and Network alerter gives status 200
     testNetworkAlertStatus = 200;
-    alertInCelcius(400.5);
+    alertInCelcius(250, networkAlertStub, 150);
     assert(alertFailureCount == 0);
-    //Test 2: Network alerter gives status 500
-    testNetworkAlertStatus = 500;
-    alertInCelcius(303.6);
+    //Test 2: Threshold is 150 degreeC, input is 302F and Network alerter gives status 200
+    testNetworkAlertStatus = 200;
+    alertInCelcius(302, networkAlertStub, 150);
+    assert(alertFailureCount == 0);
+    //Test 3: Threshold is 150 degreeC, input is 305F and Network alerter gives status 200
+    testNetworkAlertStatus = 200;
+    alertInCelcius(305, networkAlertStub, 150);
+    assert(alertFailureCount == 0);
+    //Test 4: Threshold is 150 degreeC, input is 305F and Network alerter gives status 500
+    testNetworkAlertStatus = 200;
+    alertInCelcius(305, networkAlertStub, 150);
     assert(alertFailureCount == 1);
+    
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
