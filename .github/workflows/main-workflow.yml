@@ -22,5 +22,5 @@ jobs:
 
     - name: alerter fail
       run: |
-        g++ -Wall -Wextra -Werror alerter.c -o alerter.out
+        g++ -Wall -Wextra -Werror alerter.c alerter_test.c -o alerter.out
         ./alerter.out
