@@ -25,17 +25,7 @@ void createColorPair(void)
 void formatColorPairString(char* colorPairStrBuff, int pairIdx)
 {
     memset(colorPairStrBuff, 0, 50);
-    char spaceAftrPairNum[5];
-    if(colorPairData[pairIdx].pairNum < 10)
-    {
-        strcpy(spaceAftrPairNum,"  | ");
-    }
-    else
-    {
-        strcpy(spaceAftrPairNum ," | ");
-    }
-
-    sprintf(colorPairStrBuff, "%d%s%-6s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
+    sprintf(colorPairStrBuff, "%-2d | %-6s | %s",colorPairData[pairIdx].pairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
        
 void printColorMap() {
@@ -58,6 +48,8 @@ int main() {
     assert(colorPairData[1].pairNum == 2);
     assert(strcmp(colorPairData[1].majorColor, "White") == 0);
     assert(strcmp(colorPairData[1].minorColor, "Orange") == 0);
+    char colorPairStrBuff[50];
+    
     
     printf("All is well (maybe!)\n");
     return 0;
