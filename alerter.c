@@ -20,7 +20,7 @@ void alertInCelcius(float farenheit, int(*networkAlert)(float), float threshold)
 
 int main() {
     
-    //Test 1: Threshold is 150 degreeC, input is 250F and Network alerter gives status 200
+    //Test 1: Threshold is 150 degreeC, input is 301.5F and Network alerter gives status 200
     testNetworkAlertStatus = 200;
     alertInCelcius(301.5, networkAlertStub, 150);
     assert(alertFailureCount == 0);
@@ -28,12 +28,12 @@ int main() {
     testNetworkAlertStatus = 200;
     alertInCelcius(302, networkAlertStub, 150);
     assert(alertFailureCount == 0);
-    //Test 3: Threshold is 150 degreeC, input is 305F and Network alerter gives status 200
+    //Test 3: Threshold is 150 degreeC, input is 302.4F and Network alerter gives status 200
     testNetworkAlertStatus = 200;
     alertInCelcius(302.4, networkAlertStub, 150);
     assert(alertFailureCount == 0);
-    //Test 4: Threshold is 150 degreeC, input is 305F and Network alerter gives status 500
-    testNetworkAlertStatus = 200;
+    //Test 4: Threshold is 150 degreeC, input is 303.5F and Network alerter gives status 500
+    testNetworkAlertStatus = 500;
     alertInCelcius(303.5, networkAlertStub, 150);
     assert(alertFailureCount == 1);
     
