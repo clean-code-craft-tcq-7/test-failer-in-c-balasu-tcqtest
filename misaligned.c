@@ -23,7 +23,7 @@ void createColorPair(void)
 void printColorMap() {
     int i = 0;
     for(i = 0; i < MAX_COLOR_PAIR_POSSIBLE; i++) {
-        printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+        printf("%d | %s | %s\n", colorPairData[i].pairNum, colorPairData[i].majorColor, colorPairData[i].minorColor);
     }
 }
 
