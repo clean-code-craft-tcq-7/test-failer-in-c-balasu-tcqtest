@@ -26,8 +26,6 @@ void formatColorPairString(char* colorPairStrBuff, int pairIdx)
 {
     memset(colorPairStrBuff, 0, 50);
     char spaceAftrPairNum[5];
-    int myPadwidth = 10;
-    int spaceCnt;
     if(colorPairData[pairIdx].pairNum < 10)
     {
         strcpy(spaceAftrPairNum,"  | ");
@@ -36,7 +34,7 @@ void formatColorPairString(char* colorPairStrBuff, int pairIdx)
     {
         strcpy(spaceAftrPairNum ," | ");
     }
-    spaceCnt = myPadwidth - strlen(colorPairData[pairIdx].majorColor);
+
     sprintf(colorPairStrBuff, "%d%s%-5s | %s",colorPairData[pairIdx].pairNum,spaceAftrPairNum,colorPairData[pairIdx].majorColor, colorPairData[pairIdx].minorColor);
 }
        
