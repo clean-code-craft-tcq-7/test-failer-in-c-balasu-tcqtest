@@ -49,7 +49,7 @@ int main() {
     assert(strcmp(colorPairData[1].majorColor, "White") == 0);
     assert(strcmp(colorPairData[1].minorColor, "Orange") == 0);
     char colorPairStrBuff[50];
-    
+    formatColorPairString(colorPairStrBuff, 1);
     
     printf("All is well (maybe!)\n");
     return 0;
