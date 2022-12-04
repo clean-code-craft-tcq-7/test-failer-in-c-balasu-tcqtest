@@ -49,8 +49,10 @@ int main() {
     assert(strcmp(colorPairData[1].majorColor, "White") == 0);
     assert(strcmp(colorPairData[1].minorColor, "Orange") == 0);
     char colorPairStrBuff[50];
-    formatColorPairString(colorPairStrBuff, 1);
-    
+    formatColorPairString(colorPairStrBuff, 0);
+    assert(strcmp(colorPairStrBuff,"1  | White  | Blue") == 0);
+    formatColorPairString(colorPairStrBuff, 16);
+    assert(strcmp(colorPairStrBuff,"17 | Yellow | Orange") == 0);
     printf("All is well (maybe!)\n");
     return 0;
 }
