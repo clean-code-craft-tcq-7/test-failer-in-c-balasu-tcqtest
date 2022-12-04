@@ -33,12 +33,12 @@ int main() {
     int result = printColorMap();
     assert(result == 25);
     // Simivlary all pairs shall be evaluated using the testColorPair variable
-    assert(testColorPair[0].pairNum == 1);
-    assert(strcmp(testColorPair[0].majorColor, "White") == 0);
-    assert(strcmp(testColorPair[0].minorColor, "Blue") == 0);
-    assert(testColorPair[1].pairNum == 2);
-    assert(strcmp(testColorPair[1].majorColor, "White") == 0);
-    assert(strcmp(testColorPair[1].minorColor, "Orange") == 0);
+    assert(colorPairData[0].pairNum == 1);
+    assert(strcmp(colorPairData[0].majorColor, "White") == 0);
+    assert(strcmp(colorPairData[0].minorColor, "Blue") == 0);
+    assert(colorPairData[1].pairNum == 2);
+    assert(strcmp(colorPairData[1].majorColor, "White") == 0);
+    assert(strcmp(colorPairData[1].minorColor, "Orange") == 0);
     
     printf("All is well (maybe!)\n");
     return 0;
